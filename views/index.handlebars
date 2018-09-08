@@ -1,0 +1,115 @@
+<h2 class="page-header">Dashboard</h2>
+<ul class="nav nav-pills">
+  <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+  <li><a data-toggle="pill" href="#menu1">Lender Request</a></li>
+  <li><a data-toggle="pill" href="#menu2">Borrower Request</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <br>
+    <h4>Welcome to Admin dashboard </h4>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    </br>
+    {{#if lenders}}
+    <div class="row">
+      {{#each lenders}}
+      {{#if this.status}}
+
+      {{else if this.reject}}
+
+      {{else}}
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Lender profile Request</div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-5">
+                <img src="http://pngimage.net/wp-content/uploads/2018/06/person-logo-png.png" height="250px" width="250px"
+                  class="img-responsive">
+              </div>
+              <div class="col-md-7">
+                <ul class="list-group">
+                  <li class="list-group-item active">
+                    Profile Info
+                  </li>
+                  <li class="list-group-item">Name : {{this.name}}</li>
+                  <li class="list-group-item">Email : {{this.email}}</li>
+                  <li class="list-group-item">Other details</li>
+                  <li class="list-group-item">Other details</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <div class="panel-footer clearfix">
+            <div class="pull-right">
+              <a href="/admin/accept/{{this._id}}" class="btn btn-info">Accept</a>
+              <a href="/admin/reject/{{this._id}}" class="btn btn-danger">Reject</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+    {{else}}
+    <center>
+      <h4>No request</h4>
+    </center>
+    {{/if}}
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    </br>
+    {{#if borrowers}}
+    <div class="row">
+      {{#each borrowers}}
+      {{#if this.status}}
+
+      {{else if this.reject}}
+
+      {{else}}
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Borrower profile Request</div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-5">
+                <img src="http://pngimage.net/wp-content/uploads/2018/06/person-logo-png.png" height="250px" width="250px"
+                  class="img-responsive">
+              </div>
+              <div class="col-md-7">
+                <ul class="list-group">
+                  <li class="list-group-item active">
+                    Profile Info
+                  </li>
+                  <li class="list-group-item">Name : {{this.name}}</li>
+                  <li class="list-group-item">Email : {{this.email}}</li>
+                  <li class="list-group-item">Other details</li>
+                  <li class="list-group-item">Other details</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <div class="panel-footer clearfix">
+            <div class="pull-right">
+              <a href="/admin/accept/{{this._id}}" class="btn btn-info">Accept</a>
+              <a href="/admin/reject/{{this._id}}" class="btn btn-danger">Reject</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+    {{else}}
+    <center>
+      <h4>No request</h4>
+    </center>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<h2 class="page-header">Dashboard</h2>
+<ul class="nav nav-pills">
+  <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+  <li><a data-toggle="pill" href="#menu">Borrower Request</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <br>
+    <p>Welcome to Lenders dashboard </p>
+  </div>
+
+
+  <div id="menu" class="tab-pane fade">
+    </br>
+    {{#if borrowers}}
+    <div class="row">
+      {{#each borrowers}}
+      {{#if this.status}}
+
+      {{else if this.reject}}
+
+      {{else}}
+      <div class="col-md-6">
+        <div class="panel panel-primary">`
+          <div class="panel-heading">Borrower profile Request</div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-5">
+                <img src="http://pngimage.net/wp-content/uploads/2018/06/person-logo-png.png" height="250px" width="250px"
+                  class="img-responsive">
+              </div>
+              <div class="col-md-7">
+                <ul class="list-group">
+                  <li class="list-group-item active">
+                    Profile Info
+                  </li>
+                  <li class="list-group-item">Amount: {{this.amount}}</li>
+                  <li class="list-group-item">AccountNumber: {{this.accountNumber}}</li>
+                  <li class="list-group-item">From:{{this.periodStart}}</li>
+                  <li class="list-group-item">Return by:{{this.periodEnd}}</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <div class="panel-footer clearfix">
+            <div class="pull-right">
+              <a href="/lender/accept/{{this._id}}" class="btn btn-info">Accept</a>
+              <a href="/lender/reject/{{this._id}}" class="btn btn-danger">Reject</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+    {{else}}
+    <center>
+      <h4>No request</h4>
+    </center>
+    {{/if}}
+  </div>
